@@ -168,4 +168,3 @@ Below are the major architecture decisions made in this codebase, the rationale 
 7) **CI and release notes (suggested)**
 - Add a light CI pipeline that runs `flutter analyze` and `flutter test` on each PR. Optionally run `flutter build` in release mode on release branches.
 
-_If you'd like, I can convert these notes into a short architecture.md file, produce diagrams (sequence or component), or scaffold a CI workflow. Which of those would help most right now?_
