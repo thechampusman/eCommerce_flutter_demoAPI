@@ -1,0 +1,59 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Analyze, Test & Build (Android)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache pub and gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+            ~/.gradle
+          key: ${{ runner.os }}-flutter-cache-${{ hashFiles('**/pubspec.yaml') }}-${{ hashFiles('**/android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-cache-
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Check Dart/Flutter format
+        # Fails the job if formatting issues are found
+        run: |
+          dart format --set-exit-if-changed .
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Build Android release APK
+        if: ${{ success() }}
+        run: flutter build apk --release --no-shrink
+
+      - name: Upload APK artifact
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
