@@ -37,7 +37,7 @@ jobs:
         run: flutter doctor -v
 
       - name: Check Dart/Flutter format
-        # Fails the job if formatting issues are found
+
         run: |
           dart format --set-exit-if-changed .
 
