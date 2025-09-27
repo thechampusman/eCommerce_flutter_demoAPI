@@ -2,6 +2,20 @@
 
 A  e-commerce Flutter app (ShopSphere) built with practical separation of concerns and testability in mind. The codebase uses BLoC for state management, a service layer for API and storage, and local persistence for offline scenarios.
 
+## Screenshots
+
+Below are some screenshots of the app:
+
+<p align="center">
+  <img src="screenshot/photo_1_2025-09-28_00-27-20.jpg" alt="Screenshot 1" width="250"/>
+  <img src="screenshot/photo_2_2025-09-28_00-27-20.jpg" alt="Screenshot 2" width="250"/>
+  <img src="screenshot/photo_3_2025-09-28_00-27-20.jpg" alt="Screenshot 3" width="250"/>
+  <img src="screenshot/photo_4_2025-09-28_00-27-20.jpg" alt="Screenshot 4" width="250"/>
+  <img src="screenshot/photo_5_2025-09-28_00-27-20.jpg" alt="Screenshot 5" width="250"/>
+  <img src="screenshot/photo_6_2025-09-28_00-27-20.jpg" alt="Screenshot 6" width="250"/>
+  <img src="screenshot/photo_7_2025-09-28_00-27-20.jpg" alt="Screenshot 7" width="250"/>
+</p>
+
 ## Quick links
 - Project root: `lib/`
 - Tests: `test/`
