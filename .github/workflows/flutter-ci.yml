@@ -25,11 +25,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-flutter-cache-
 
-      - name: Set up Flutter (stable channel)
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 'stable'
-          channel: 'stable'
+      - name: Install system deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git wget unzip xz-utils
+
+      - name: Install Flutter (stable branch)
+        run: |
+          git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter
+          echo "$HOME/flutter/bin" >> $GITHUB_PATH
+          echo "$HOME/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+          flutter --version
+
+      - name: Precache artifacts (optional)
+        run: |
+          # Precache commonly used artifacts; ignore errors if Android SDK not present yet
+          flutter precache --android || true
 
       - name: Install dependencies
         run: flutter pub get
