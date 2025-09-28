@@ -1,5 +1,5 @@
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=thechampusman.eCommerce_flutter_demoAPI)
-[![Flutter](https://img.shields.io/badge/Flutter-3.8.1-blue?logo=flutter&logoColor=white)](https://flutter.dev) \
+[![Flutter](https://img.shields.io/badge/Flutter-3.8.1-blue?logo=flutter&logoColor=white)](https://flutter.dev)
 
 # ShopSphere — E-commerce Flutter App
 
