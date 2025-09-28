@@ -1,6 +1,9 @@
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=thechampusman.eCommerce_flutter_demoAPI)
 
 
+[![CI](https://github.com/OWNER/REPO/actions/workflows/flutter-ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions) \
+[![Flutter](https://img.shields.io/badge/Flutter-3.8.1-blue?logo=flutter&logoColor=white)](https://flutter.dev) \
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 # ShopSphere — E-commerce Flutter App
 
 A  e-commerce Flutter app (ShopSphere) built with practical separation of concerns and testability in mind. The codebase uses BLoC for state management, a service layer for API and storage, and local persistence for offline scenarios.
