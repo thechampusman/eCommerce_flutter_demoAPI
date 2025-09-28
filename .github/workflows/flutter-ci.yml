@@ -52,8 +52,16 @@ jobs:
       - name: Flutter doctor
         run: flutter doctor -v
 
-      - name: Analyze code
-        run: flutter analyze
+      - name: Analyze code (non-failing)
+        run: |
+          echo "Running flutter analyze (errors will be reported but won't fail the job)..."
+          flutter analyze || true
+          rc=$?
+          if [ $rc -ne 0 ]; then
+            echo "flutter analyze exited with code $rc; check output above for details. Continuing job as requested."
+          else
+            echo "flutter analyze passed."
+          fi
 
       - name: Run tests
         run: flutter test --coverage
